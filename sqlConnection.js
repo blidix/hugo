@@ -1,34 +1,44 @@
-var mysql      = require('mysql');
-var express    = require("express");
+var mysql = require('mysql');
+var databaseConnectionData = require("./sqlConnection.json");
 
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'blidix',
-  port     : '3316',
-  database : 'deTurnoDB'
-});
+var connection = mysql.createConnection(databaseConnectionData);
 
-connection.connect(function(err){
-if(!err) {
-    console.log("Database is connected ... nn");    
-} else {
-    console.log("Error connecting database ... nn");    
-}
-});
+function getPharmacys(category) {
+    var query = "SELECT * FROM `pharmacy` WHERE `category` = '" + category + "'";
+    connection.connect(function (err) {
+        if (!err) {
+            console.log("Connected");
+            connection.query(query, function (err, rows, fields) {
+                if (!err) {
+                    console.log('The solution is: ', rows);
+                    return rows;
+                } else {
+                    console.log('Error while performing Query.');
+                    return "Error while performing Query."
+                }
+            });
+        } else {
+            console.log("Error connecting database ... nn");
+            console.log(err);
+            return "Error connecting database ...";
+        }
+        connection.end();
+    });
+};
 
-var app = express();
-
-app.get("/",function(req,res){
-connection.query('SELECT * FROM `pharmacy`', function(err, rows, fields) {
-connection.end();
-  if (!err)
-    console.log('The solution is: ', rows);
-  else
-    console.log('Error while performing Query.');
-  });
-});
-
-app.listen(3000);
-
-//connection.end();
+function getPharmacysCallback(category,callback) {
+    var query = "SELECT * FROM `pharmacy` WHERE `category` = '" + category + "'";
+    connection.connect(function (err) {
+        if (!err) {
+            console.log("Connected");
+            connection.query(query, callback);
+            connection.end();
+        } else {
+            console.log("Error connecting database ... nn");
+            console.log(err);
+            return "Error connecting database ...";
+        }
+       
+    });
+};
+module.exports.getPharmacys = getPharmacysCallback;
