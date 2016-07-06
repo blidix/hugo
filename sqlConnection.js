@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-var databaseConnectionData = require("./sqlConnectionLocal.json");
+var databaseConnectionData = require("./config/sqlConnectionLocal.json");
 
 var connection = mysql.createConnection(databaseConnectionData);
 
