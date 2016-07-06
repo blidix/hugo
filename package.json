@@ -6,8 +6,11 @@
   "dependencies": {
     "messenger-bot": "^2.3.0",
     "apiai": "^2.0.5",
-    "express": "^4.10.6",
-    "mysql": "^2.5.4"
+    "mysql": "^2.5.4",
+    "body-parser": "^1.15.0",
+    "config": "^1.20.4",
+    "express": "^4.13.4",
+    "request": "^2.72.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axdiaz/hugo.git"
+    "url": "git+https://github.com/blidix/hugo.git"
   },
   "keywords": [
     "bot"
@@ -23,9 +26,9 @@
   "author": "blidix",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/axdiaz/hugo/issues"
+    "url": "https://github.com/blidix/hugo/issues"
   },
-  "homepage": "https://github.com/axdiaz/hugo#readme"
+  "homepage": "https://github.com/blidix/hugo.git#readme"
 
 
 }

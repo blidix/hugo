@@ -1,7 +1,0 @@
-{
-    "host": "localhost",
-    "user": "pma",
-    "password": "",
-    "port": "3306",
-    "database": "pharmacy"
-}

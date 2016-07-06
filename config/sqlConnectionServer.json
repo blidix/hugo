@@ -1,0 +1,7 @@
+{
+    "host": "mysql.webcindario.com",
+    "user": "farmaciasdeturno",
+    "password": "",
+    "port": "8080",
+    "database": "pharmacy"
+}
